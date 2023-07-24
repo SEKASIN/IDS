@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Exiled.API.Enums;
 using Exiled.API.Features;
 using Exiled.Events.EventArgs.Server;
 using MEC;
@@ -56,9 +57,10 @@ public class EventHandler {
         private void TurnOffRandomRoomLight()
         {
             int index = rnd.Next(RoomLightController.Instances.Count);
-            
+
+            RoomLightController.Instances.RemoveAll(item => Room.Get(item.Room).Zone == ZoneType.Other || Room.Get(item.Room).Zone == ZoneType.Unspecified);
             RoomLightController chosen = RoomLightController.Instances[index];
-            
+
             Room room = Room.Get(chosen.Room);
 
             room.TurnOffLights(BlackoutDuration);
