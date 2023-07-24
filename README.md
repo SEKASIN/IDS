@@ -2,11 +2,11 @@
 EXILED plugin that randomly causes generator faults at random rooms.
 
 ## Installation
-Download IDS.dll from [Releases](https://github.com/SEKASIN/IDS/blob/master/Releases)
+Download IDS.dll from [Releases](https://github.com/SEKASIN/IDS/blob/master/Releases)\
 Move IDS.dll to .config/EXILED/Plugins and restart server.
 
 ## Configuration
-Edit values in .config/EXILED/Configs/PORT-config.yml
+Edit values in .config/EXILED/Configs/PORT-config.yml\
 Example config with default values:
 ```
 i_d_s:
