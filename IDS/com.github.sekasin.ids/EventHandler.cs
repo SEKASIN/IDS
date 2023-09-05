@@ -56,24 +56,24 @@ public class EventHandler {
 
         private void TurnOffRandomRoomLight()
         {
-            int index = rnd.Next(RoomLightController.Instances.Count);
-
-            RoomLightController.Instances.RemoveAll(item => Room.Get(item.Room).Zone == ZoneType.Other || Room.Get(item.Room).Zone == ZoneType.Unspecified);
-            RoomLightController chosen = RoomLightController.Instances[index];
-
-            Room room = Room.Get(chosen.Room);
-
+            var Roomlist = Room.List.ToList();
+            Roomlist.RemoveAll(item => item.Zone == ZoneType.Other || item.Zone == ZoneType.Unspecified);
+            
+            int index = rnd.Next(Roomlist.Count);
+            
+            Room room = Roomlist[index];
+            
             room.TurnOffLights(BlackoutDuration);
             
             if (_debugMode) {
-                Log.Debug(chosen.Room + " in blackout");
+                Log.Debug(room + " in blackout");
             }
 
             if (rnd.NextDouble() < DoorLockDownChance)
             {
                 room.LockDown(BlackoutDuration);
                 if (_debugMode) {
-                    Log.Debug(chosen.Room + " in lockdown");
+                    Log.Debug(room + " in lockdown");
                 }
             }
 
