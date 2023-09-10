@@ -7,7 +7,7 @@ namespace IDSSuperScan.com.github.sekasin.ids {
     public class SuperScan : Plugin<Config> {
         public override string Name => "IDS";
         public override string Author => "Ugi0";
-        public override Version Version => new Version(2, 0, 0);
+        public override Version Version => new Version(1, 1, 0);
         public EventHandler eventHandler;
 
         public override void OnEnabled() {
